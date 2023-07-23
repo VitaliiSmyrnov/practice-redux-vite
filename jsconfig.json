@@ -10,7 +10,6 @@
       "utils/*": ["utils/*"],
       "hooks/*": ["hooks/*"],
       "services/*": ["services/*"],
-      "redux/*": ["redux/*"],
     }
   },
   "include": ["src"]

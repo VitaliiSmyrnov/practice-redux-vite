@@ -19,7 +19,6 @@ export default defineConfig({
       utils: "/src/utils",
       hooks: "/src/hooks",
       services: "/src/services",
-      redux: "/src/redux",
     },
   },
 });
