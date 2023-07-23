@@ -1,6 +1,8 @@
 import clsx from "clsx";
 import css from "./Button.module.css";
 
+import PropTypes from "prop-types";
+
 export const Button = ({
   selected = false,
   type = "button",
@@ -10,7 +12,7 @@ export const Button = ({
   return (
     <button
       className={clsx(css.btn, {
-        [css.isSelected]: selected
+        [css.isSelected]: selected,
       })}
       type={type}
       {...otherProps}
@@ -18,4 +20,10 @@ export const Button = ({
       {children}
     </button>
   );
+};
+
+Button.propTypes = {
+  selected: PropTypes.bool,
+  type: PropTypes.string,
+  children: PropTypes.node,
 };
