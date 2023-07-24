@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const tasksInitialState = [
   { id: 0, text: "Learn HTML and CSS", completed: true },
@@ -10,11 +10,26 @@ const tasksInitialState = [
 
 const tasksSlice = createSlice({
   name: "tasks",
-  state: tasksInitialState,
+  initialState: tasksInitialState,
   reducers: {
-    addTask(state, action) {
-      // return [...state, action.payload];
-      state.push(action.payload);
+    // addTask(state, action) {
+    //   // return [...state, action.payload];
+    //   state.push(action.payload);
+    // },
+    addTask: {
+      reducer(state, action) {
+        // return [...state, action.payload];
+        state.push(action.payload);
+      },
+      prepare(text) {
+        return {
+          payload: {
+            id: nanoid(),
+            text,
+            completed: false,
+          },
+        };
+      },
     },
     deleteTask(state, action) {
       // return state.filter(task => task.id !== action.payload);
@@ -31,6 +46,7 @@ const tasksSlice = createSlice({
       for (const task of state) {
         if (task.id === action.payload) {
           task.completed = !task.completed;
+          break;
         }
       }
     },
@@ -39,4 +55,4 @@ const tasksSlice = createSlice({
 
 export const { addTask, deleteTask, toggleCompleted } = tasksSlice.actions;
 
-export const tasksReducer = tasksSlice.reducers;
+export const tasksReducer = tasksSlice.reducer;

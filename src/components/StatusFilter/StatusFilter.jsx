@@ -4,7 +4,7 @@ import css from "./StatusFilter.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { selectFilters } from "../../redux/selectors";
 import { statusFilters } from "../../redux/constants";
-import { setStatusFilter } from "../../redux/actions";
+import { setStatusFilter } from "../../redux/filtersSlice";
 
 export const StatusFilter = () => {
   const dispatch = useDispatch();
