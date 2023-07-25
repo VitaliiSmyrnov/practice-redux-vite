@@ -31,11 +31,13 @@ const tasksSlice = createSlice({
         };
       },
     },
+
     deleteTask(state, action) {
       // return state.filter(task => task.id !== action.payload);
       const index = state.findIndex((task) => task.id === action.payload);
       state.splice(index, 1);
     },
+    
     toggleCompleted(state, action) {
       // return state.map((task) => {
       //   if (task.id !== action.payload) {
